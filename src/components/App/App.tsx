@@ -1,7 +1,7 @@
 import css from './App.module.css';
 
 import { useState, useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import SearchBar from '../SearchBar/SearchBar';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -21,6 +21,7 @@ function App() {
     queryKey: ['movies', query, page],
     queryFn: () => fetchMovies(query, page),
     enabled: query.trim().length > 0,
+    placeholderData: keepPreviousData,
   });
 
   const movies = data?.results ?? [];
@@ -65,7 +66,7 @@ function App() {
 
       {isError && <ErrorMessage />}
 
-      {!isLoading && !isError && movies.length > 0 && totalPages > 1 && (
+      {/* {!isLoading && !isError && movies.length > 0 && totalPages > 1 && (
         <ReactPaginate
           pageCount={totalPages}
           pageRangeDisplayed={5}
@@ -84,15 +85,10 @@ function App() {
           movies={movies}
           onSelect={setSelectedMovie}
         />
-      )}
+      )} */}
 
-      {/* {movies.length > 0 && !isLoading && !isError && (
+      {movies.length > 0 && !isLoading && !isError && (
         <>
-          <MovieGrid
-            movies={movies}
-            onSelect={setSelectedMovie}
-          />
-
           {totalPages > 1 && (
             <ReactPaginate
               pageCount={totalPages}
@@ -106,8 +102,13 @@ function App() {
               previousLabel="←"
             />
           )}
+
+          <MovieGrid
+            movies={movies}
+            onSelect={setSelectedMovie}
+          />
         </>
-      )} */}
+      )}
 
       {selectedMovie && (
         <MovieModal
