@@ -66,27 +66,6 @@ function App() {
 
       {isError && <ErrorMessage />}
 
-      {/* {!isLoading && !isError && movies.length > 0 && totalPages > 1 && (
-        <ReactPaginate
-          pageCount={totalPages}
-          pageRangeDisplayed={5}
-          marginPagesDisplayed={1}
-          onPageChange={handlePageChange}
-          forcePage={page - 1}
-          containerClassName={css.pagination}
-          activeClassName={css.active}
-          nextLabel="→"
-          previousLabel="←"
-        />
-      )}
-
-      {!isLoading && !isError && movies.length > 0 && (
-        <MovieGrid
-          movies={movies}
-          onSelect={setSelectedMovie}
-        />
-      )} */}
-
       {movies.length > 0 && !isLoading && !isError && (
         <>
           {totalPages > 1 && (
