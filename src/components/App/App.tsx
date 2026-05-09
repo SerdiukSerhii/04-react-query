@@ -50,10 +50,6 @@ function App() {
     setPage(1);
   };
 
-  const handlePageChange = ({ selected }: { selected: number }) => {
-    setPage(selected + 1);
-  };
-
   return (
     <div className={css.container}>
       <Toaster
@@ -81,7 +77,7 @@ function App() {
               pageCount={totalPages}
               pageRangeDisplayed={5}
               marginPagesDisplayed={1}
-              onPageChange={handlePageChange}
+              onPageChange={({ selected }) => setPage(selected + 1)}
               forcePage={page - 1}
               containerClassName={css.pagination}
               activeClassName={css.active}
