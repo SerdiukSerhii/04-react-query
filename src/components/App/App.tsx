@@ -10,7 +10,15 @@ import MovieModal from '../MovieModal/MovieModal';
 import fetchMovies from '../../services/movieService';
 import type { Movie } from '../../types/movie';
 import toast, { Toaster } from 'react-hot-toast';
-import ReactPaginate from 'react-paginate';
+import ReactPaginateModule from 'react-paginate';
+import type { ReactPaginateProps } from 'react-paginate';
+import type { ComponentType } from 'react';
+
+const ReactPaginate = (
+  ReactPaginateModule as unknown as {
+    default: ComponentType<ReactPaginateProps>;
+  }
+).default;
 
 function App() {
   const [query, setQuery] = useState('');
