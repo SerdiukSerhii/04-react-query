@@ -65,32 +65,32 @@ src/
 
 ---
 
-## ⚙️ Локальний запуск та встановлення
+## ⚙️ Local Setup and Installation
 
 1. Clone the repository and navigate to the project folder:
 
-git clone https://github.com/SerdiukSerhii/04-react-query
+   git clone https://github.com/SerdiukSerhii/04-react-query
 
-cd 04-react-query
+   cd 04-react-query
 
 2. Install dependencies:
 
-npm install
+   npm install
 
 3. Create a .env file in the root directory and add your TMDB API key:
 
-VITE_TMDB_API_KEY=your_access_token_here
+   VITE_TMDB_API_KEY=your_access_token_here
 
 4. Start development mode:
 
-npm run dev
+   npm run dev
 
 5. Production build:
 
-npm run build
+   npm run build
 
 ---
 
-## Автор
+## Author
 
 **Serhii Serdiuk**
