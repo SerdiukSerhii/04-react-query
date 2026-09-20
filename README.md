@@ -1,87 +1,96 @@
-04-react-movies
+# TMDB Movie Search
 
-# React + TypeScript + Vite
+Educational project for movie search through **TMDB API** integration, **Axios**
+requests, asynchronous state management using **TanStack Query (React Query)**,
+and pagination implementation with **React Paginate**.
 
-This template provides a minimal setup to get React working in Vite with HMR and
-some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🚀 Demo & Links
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react)
-  uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc)
-  uses [SWC](https://swc.rs/)
+- **Live Demo (Vercel):**
+  [Live page](https://04-react-query-beryl-two.vercel.app/)
+- **Repository:** [GitHub](https://github.com/SerdiukSerhii/04-react-query)
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See
-[this documentation](https://react.dev/learn/react-compiler) for more
-information.
+## 🛠️ Tech Stack
 
-Note: This will impact Vite dev & build performances.
+- **Bundler:** Vite (React + TypeScript)
+- **Asynchronous State Management:** TanStack Query (`@tanstack/react-query`)
+- **HTTP Client:** Axios
+- **Pagination:** React Paginate
+- **Styling:** CSS Modules + `modern-normalize`
+- **Linter / Formatter:** Prettier & ESLint
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the
-configuration to enable type-aware lint rules:
+## 📌 Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. **Movie Search:** Sending requests to the TMDB service based on the entered
+   search keyword.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. **Pagination:** Navigating through result pages using the `ReactPaginate`
+   component.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+3. **State Management:**
+   - `QueryClientProvider` setup at the top level in `src/main.tsx`.
+   - Using the `useQuery` hook for caching, automatic refetching, and handling
+     `isLoading` / `isError` states.
+
+4. **Unified Typing:** Strict use of TypeScript (`interface`, common types in
+   `src/types/`, and internal props for components).
+
+---
+
+## 📁 Project Structure
+
+Each React component is located in a separate folder inside `src/components/`
+containing the component file (`.tsx`) and its corresponding CSS module file
+(`.module.css`).
+
+```text
+src/
+├── api/
+├── components/
+│   ├── App/
+│   │   ├── App.tsx
+│   │   └── App.module.css
+│   └── ... (інші компоненти)
+├── types/
+│   └── movie.ts
+├── main.tsx
+└── index.css
 ```
 
-You can also install
-[eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x)
-and
-[eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom)
-for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+## ⚙️ Локальний запуск та встановлення
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+1. Clone the repository and navigate to the project folder:
+
+git clone https://github.com/SerdiukSerhii/04-react-query
+
+cd 04-react-query
+
+2. Install dependencies:
+
+npm install
+
+3. Create a .env file in the root directory and add your TMDB API key:
+
+VITE_TMDB_API_KEY=your_access_token_here
+
+4. Start development mode:
+
+npm run dev
+
+5. Production build:
+
+npm run build
+
+---
+
+## Автор
+
+**Serhii Serdiuk**
